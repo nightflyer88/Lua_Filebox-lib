@@ -4,6 +4,9 @@
 
 Jeti library for LUA app developers. Open files with this beautiful Filebox library.
 
+![screen000](https://raw.githubusercontent.com/nightflyer88/Lua_Filebox-lib/master/img/Screen001.png)
+![screen001](https://raw.githubusercontent.com/nightflyer88/Lua_Filebox-lib/master/img/Screen002.png)
+
 ## How to use
 
 In the following steps you will learn how to integrate the filebox lib into your app. Check out the sample app on how to use Lib.
@@ -72,6 +75,3 @@ Returns the fileextension.
 filebox.getFileSize(file)
 ```
 Returns the filesize.
-
-![screen000](https://raw.githubusercontent.com/nightflyer88/Lua_Filebox-lib/master/img/Screen000.bmp)
-![screen001](https://raw.githubusercontent.com/nightflyer88/Lua_Filebox-lib/master/img/Screen001.bmp)
