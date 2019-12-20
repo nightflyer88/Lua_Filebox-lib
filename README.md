@@ -37,6 +37,8 @@ Parameters:
 - callBack (function) - call this function, if exits the filebox
 - escSubform (number) - subform ID of the last form, it calls when the filebox closes
 
+Returns filepath as string, eg: "/path/to/file/myfile.txt" or nil if no file selectet.
+
 ### update form function
 
 ```
@@ -54,7 +56,6 @@ Updates the filebox keys, place this function in the key function of the app.
 ## Helper functions
 
 Additional helper functions.
-
 
 ```
 filebox.getFilePath(file)
