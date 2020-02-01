@@ -26,16 +26,16 @@ local filebox = require("myapp/filebox")
 Opens the filebox dialog and the user can select a file.
 
 ```
-filebox.openfile(<subformFilebox>, <label>, <rootPath>, <currentPath>, <fileExtension>, <callBack>, <escSubform>)
+filebox.openfile(<label>, <rootPath>, <currentPath>, <fileExtension>, <callBack>, <escSubform> [, <subformFilebox>])
 ```
 Parameters:
-- subformFilebox (number) - subform ID of the filebox
 - label (string) - filebox label 
 - rootPath (string) - root path of filebox
 - currentPath (string) - current path that open filebox
 - fileExtension (array) - list of displayed file extensions, "*" prints all files
 - callBack (function) - call this function, if exits the filebox
 - escSubform (number) - subform ID of the last form, it calls when the filebox closes
+- [optional] subformFilebox (number) - subform ID of the filebox
 
 Returns filepath as string, eg: "/path/to/file/myfile.txt" or nil if no file selectet.
 
@@ -49,7 +49,7 @@ Updates the filebox form, place this function in the From function of the app.
 ### update key function
 
 ```
-filebox.updatekey(formView,keyCode)
+filebox.updatekey(keyCode)
 ```
 Updates the filebox keys, place this function in the key function of the app.
 
