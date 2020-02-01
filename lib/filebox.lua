@@ -5,6 +5,7 @@
     (c) 2019 by M. Lehmann
     ---------------------------------------------------------
 
+    V1.1    22.22.19    Subform_ID of the filebox as an internal default value
     V1.0    05.09.19    initial release
 
 --]]
@@ -14,7 +15,7 @@
 
 local filebox = {}
 
-local subform_ID, returnedSubform = nil,nil
+local subform_ID, returnedSubform, curSubform = nil,nil,nil
 local title_String,current_Path,root_Path,displayedFileExtensions = "","","",{}
 local fileType = {wav = ":sndOn", mp3 = ":music", log = ":graph", lua = ":edit", jsn = ":edit", josn = ":edit", txt = ":edit"}
 local callback
@@ -94,8 +95,8 @@ function filebox.getFileSize(file)
     return nil
 end
 
-function filebox.updatekey(subform,keyCode)
-    if(subform_ID == subform)then  
+function filebox.updatekey(keyCode)
+    if(subform_ID == curSubform)then  
         
         if(keyCode==KEY_5)then
             form.preventDefault()
@@ -111,7 +112,8 @@ end
 
 
 function filebox.updateform(subform)
-    if(subform_ID == subform)then
+    curSubform = subform
+    if(subform_ID == curSubform)then
 
         form.setTitle(title_String)
         form.setButton(1,"ESC",ENABLED)
@@ -216,8 +218,8 @@ function filebox.updateform(subform)
 end
 
 
-function filebox.openfile(subformFilebox, label, rootPath, currentPath, fileExtension, callBack, escSubform)
-    subform_ID = subformFilebox
+function filebox.openfile(label, rootPath, currentPath, fileExtension, callBack, escSubform , subformFilebox)
+    subform_ID = subformFilebox or 128
     title_String = label
     root_Path = rootPath
     if(#root_Path > #currentPath)then
